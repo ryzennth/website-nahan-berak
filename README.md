@@ -237,9 +237,3 @@ That's the full workflow. **Zero changes to existing files** except index.html a
 - [ ] Replace placeholder YouTube/Instagram/TikTok URLs in `config/constants.js`
 - [ ] Add `sitemap.xml` and `robots.txt`
 - [ ] Test on real mobile devices
-
----
-
-## 👥 Team
-
-Built with 💛 by **Tim Nahan Berak** — Raka, Dino, Zara, Bimo, Tejo.
