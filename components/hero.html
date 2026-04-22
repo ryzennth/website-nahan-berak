@@ -1,0 +1,132 @@
+<!--
+  ============================================================
+  components/hero.html
+  ============================================================
+  HERO COMPONENT — consists of two parts:
+    A) Swiper Carousel  (id="home", class="hero-swiper")
+    B) Marquee Ticker   (yellow scrolling banner)
+
+  CAROUSEL:
+    - 4 slides, each with unique color theme class (.slide-N)
+    - Auto-slide, fade effect, nav arrows, pagination dots
+    - Floating emoji decorations (hidden on mobile via CSS)
+    - Initialized via js/swiper.js
+
+  MARQUEE:
+    - Duplicated items for seamless loop (CSS animation trick)
+    - Paused when tab hidden (js/responsive.js)
+
+  SLIDE THEME CLASSES (in css/style.css):
+    .slide-1 — amber/orange gradient
+    .slide-2 — teal/green gradient
+    .slide-3 — crimson/purple gradient
+    .slide-4 — indigo/deep blue gradient
+  ============================================================
+-->
+
+<!-- ── Section A: Swiper Hero ── -->
+<section id="home" class="w-full" aria-label="Hero carousel">
+  <div class="swiper hero-swiper" style="height: min(80vh, 700px);">
+    <div class="swiper-wrapper">
+
+      <!-- Slide 1 — Amber / Brand Intro -->
+      <div class="swiper-slide slide-1 relative overflow-hidden flex items-center justify-center">
+        <!-- Radial glow overlay -->
+        <div class="absolute inset-0 opacity-20" style="background: radial-gradient(ellipse 60% 60% at 30% 50%, #f5c518, transparent);"></div>
+        <!-- Grid lines decoration -->
+        <div class="absolute inset-0 opacity-5" style="background-image: linear-gradient(0deg,#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px); background-size:60px 60px;"></div>
+
+        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+          <h1 class="font-display text-6xl md:text-8xl lg:text-9xl text-white leading-none mb-6">
+            NAHAN <span class="grad-text">BERAK</span>
+          </h1>
+          <p class="font-body text-lg md:text-xl text-nb-muted max-w-xl mx-auto mb-8">
+            Empat pemuda. Satu tujuan. Mengungkap sisi gelap internet dan membawa pelakunya ke tempat yang seharusnya.
+          </p>
+          <a href="#welcome" class="btn-primary">Mulai Investigasi →</a>
+        </div>
+      </div>
+
+      <!-- Slide 2 — Teal / Squad -->
+      <div class="swiper-slide slide-2 relative overflow-hidden flex items-center justify-center">
+        <div class="absolute inset-0 opacity-25" style="background: radial-gradient(ellipse 60% 60% at 70% 50%, #00c9a7, transparent);"></div>
+        <div class="absolute inset-0 opacity-5" style="background-image: linear-gradient(45deg,#fff 1px,transparent 1px),linear-gradient(-45deg,#fff 1px,transparent 1px); background-size:40px 40px;"></div>
+
+        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+          <h2 class="font-display text-5xl md:text-7xl text-white leading-none mb-4">
+            DIGITAL <span style="color:#00c9a7;">HUNTERS</span><br/>YANG SOLID
+          </h2>
+          <p class="font-body text-nb-muted text-lg md:text-xl max-w-xl mx-auto mb-8">
+            Empat orang, satu misi: memburu jejak digital, mengungkap kebenaran, dan tidak membiarkan kebusukan hidup nyaman.
+          </p>
+          <a href="#about" class="btn-ghost" style="color:#00c9a7; border-color:#00c9a7;">Siapa Kami? →</a>
+        </div>
+
+        <span class="absolute top-1/3 right-[10%] text-5xl float-delay2 select-none hidden md:block" aria-hidden="true"></span>
+      </div>
+
+      <!-- Slide 3 — Crimson / Content -->
+      <div class="swiper-slide slide-3 relative overflow-hidden flex items-center justify-center">
+        <div class="absolute inset-0 opacity-20" style="background: radial-gradient(ellipse 60% 60% at 50% 30%, #ff4d4d, transparent);"></div>
+        <div class="absolute inset-0 opacity-[0.04]" style="background: repeating-linear-gradient(0deg, #fff 0, #fff 1px, transparent 1px, transparent 30px), repeating-linear-gradient(90deg, #fff 0, #fff 1px, transparent 1px, transparent 30px);"></div>
+
+        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+          <h2 class="font-display text-5xl md:text-7xl text-white leading-none mb-4">
+            KONTEN <span style="color:#ff4d4d;">INVESTIGATIF</span><br/>TANPA FILTER
+          </h2>
+          <p class="font-body text-nb-muted text-lg max-w-xl mx-auto mb-8">
+            Pencidukan, investigasi digital, hingga penyerahan pelaku. Bukan sekadar tontonan, tapi tindakan nyata.
+          </p>
+          <a href="#community" class="btn-primary" style="background:#ff4d4d;">Lihat Konten</a>
+        </div>
+
+        <span class="absolute bottom-1/4 left-[8%] text-5xl float select-none hidden md:block" aria-hidden="true"></span>
+      </div>
+
+      <!-- Slide 4 — Purple / Community -->
+      <div class="swiper-slide slide-4 relative overflow-hidden flex items-center justify-center">
+        <div class="absolute inset-0 opacity-20" style="background: radial-gradient(ellipse 70% 50% at 50% 60%, #7b5cf0, transparent);"></div>
+
+        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+          <h2 class="font-display text-5xl md:text-7xl text-white leading-none mb-4">
+            GABUNG <span style="color:#a78bfa;">GERAKAN</span><br/>YANG BERANI
+          </h2>
+          <p class="font-body text-nb-muted text-lg max-w-xl mx-auto mb-8">
+            Kami tidak mencari penonton pasif. Kami membangun komunitas yang peduli, kritis, dan berani melawan hal yang salah.
+          </p>
+          <div class="flex gap-4 justify-center flex-wrap">
+            <a href="#community" class="btn-primary" style="background:#a78bfa; color:#fff;">Join Community</a>
+            <a href="#about"     class="btn-ghost"   style="color:#a78bfa; border-color:#a78bfa;">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /swiper-wrapper -->
+
+    <!-- Navigation buttons -->
+    <div class="swiper-button-prev" aria-label="Previous slide"></div>
+    <div class="swiper-button-next" aria-label="Next slide"></div>
+
+    <!-- Pagination dots -->
+    <div class="swiper-pagination" aria-label="Slide navigation"></div>
+  </div>
+</section>
+
+
+<!-- ── Section B: Marquee Ticker ── -->
+<div class="w-full py-3 overflow-hidden" style="background: #18dbf5; border-top: 2px solid #0a0a0a; border-bottom: 2px solid #0a0a0a;" aria-hidden="true">
+  <div class="marquee-track" role="presentation">
+    <!-- Items — duplicated below for seamless infinite loop -->
+    <span class="font-mono text-xs font-bold text-nb-black tracking-widest uppercase px-12">Nahan Berak</span>
+    <span class="font-mono text-xs font-bold text-nb-black tracking-widest uppercase px-12">★ Subscribe Sekarang</span>
+    <span class="font-mono text-xs font-bold text-nb-black tracking-widest uppercase px-12">Digital Investigation Channel</span>
+    <span class="font-mono text-xs font-bold text-nb-black tracking-widest uppercase px-12">Expose • Investigate • Deliver</span>
+    <span class="font-mono text-xs font-bold text-nb-black tracking-widest uppercase px-12">Join The Movement</span>
+    <!-- Duplicate set for seamless CSS loop -->
+    <span class="font-mono text-xs font-bold text-nb-black tracking-widest uppercase px-12">Nahan Berak</span>
+    <span class="font-mono text-xs font-bold text-nb-black tracking-widest uppercase px-12">★ Subscribe Sekarang</span>
+    <span class="font-mono text-xs font-bold text-nb-black tracking-widest uppercase px-12">Digital Investigation Channel</span>
+    <span class="font-mono text-xs font-bold text-nb-black tracking-widest uppercase px-12">Expose • Investigate • Deliver</span>
+    <span class="font-mono text-xs font-bold text-nb-black tracking-widest uppercase px-12">Join The Movement</span>
+  </div>
+</div>

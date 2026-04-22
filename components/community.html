@@ -1,0 +1,192 @@
+<!--
+  ============================================================
+  components/community.html
+  ============================================================
+  COMMUNITY COMPONENT
+  Shows all community activities and content types:
+    - 6 content cards (Challenge, Vlog, Curhat, Collab, Live, Fans)
+    - CTA banner at the bottom
+
+  CARD ANATOMY:
+    Each .nb-card contains:
+      - .tag         pill  (category label)
+      - Emoji icon   (animates on card hover via CSS wiggle)
+      - Title
+      - Description
+      - Badge / CTA link
+
+  STAGGER ANIMATION:
+    Cards use increasing transition-delay values so they
+    cascade into view rather than all appearing at once.
+
+  DATA SOURCE (for future dynamic rendering):
+    CONTENT_CARDS in config/constants.js
+  ============================================================
+-->
+<section id="community" class="relative py-28 px-6 overflow-hidden" aria-labelledby="community-heading">
+
+  <!-- Background glow -->
+  <div class="absolute top-0 right-0 w-80 h-80 opacity-[0.06] rounded-full pointer-events-none" style="background:radial-gradient(circle, #00c9a7, transparent 70%); transform:translate(20%,-20%);" aria-hidden="true"></div>
+
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Section header -->
+    <header class="text-center mb-20 reveal">
+      <span class="tag mb-5 inline-block" style="color:#00c9a7; border-color:rgba(0,201,167,.25); background:rgba(0,201,167,.1);">Community</span>
+      <h2 id="community-heading" class="font-display text-5xl md:text-7xl leading-none mb-5">
+        AKTIVITAS <span class="grad-text">TIM</span>
+      </h2>
+      <p class="font-body text-nb-muted text-lg max-w-2xl mx-auto">
+        Ini bukan soal hiburan semata. Ini tentang tindakan, bukti, dan keberanian untuk menghadapi sisi gelap yang orang lain memilih abaikan.
+      </p>
+    </header>
+
+    <!-- Content cards grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16" role="list" aria-label="Content categories">
+
+      <!-- Card 1: Challenge Series -->
+      <article class="nb-card p-7 reveal group cursor-default" role="listitem">
+        <div class="flex items-center justify-between mb-5">
+          <span class="tag">Main Series</span>
+          <span class="text-2xl group-hover:animate-wiggle" aria-hidden="true"></span>
+        </div>
+        <h3 class="font-display text-xl text-nb-light mb-3">DIGITAL HUNT</h3>
+        <p class="font-body text-nb-muted text-sm leading-relaxed mb-5">
+          Investigasi utama kami. Menelusuri jejak digital, mengumpulkan bukti, dan memburu pelaku sampai tidak punya ruang untuk bersembunyi.
+        <div class="flex items-center gap-2">
+          <div class="w-2 h-2 rounded-full bg-nb-accent" aria-hidden="true"></div>
+          <!-- <span class="font-mono text-xs text-nb-muted">30+ Episode</span> -->
+        </div>
+      </article>
+
+      <!-- Card 2: Vlog -->
+      <article class="nb-card p-7 reveal group cursor-default" style="transition-delay:.1s" role="listitem">
+        <div class="flex items-center justify-between mb-5">
+          <span class="tag" style="color:#00c9a7; border-color:rgba(0,201,167,.25); background:rgba(0,201,167,.1);">Vlog</span>
+          <span class="text-2xl group-hover:animate-wiggle" aria-hidden="true"></span>
+        </div>
+        <h3 class="font-display text-xl text-nb-light mb-3">FIELD DOCUMENTATION</h3>
+        <p class="font-body text-nb-muted text-sm leading-relaxed mb-5">
+          Semua proses di balik layar. Dari pengumpulan informasi, koordinasi tim, hingga momen sebelum tindakan dilakukan.
+        <div class="flex items-center gap-2">
+          <div class="w-2 h-2 rounded-full" style="background:#00c9a7;" aria-hidden="true"></div>
+          <!-- <span class="font-mono text-xs text-nb-muted">20+ Episode</span> -->
+        </div>
+      </article>
+
+      <!-- Card 3: Curhat -->
+      <article class="nb-card p-7 reveal group cursor-default" style="transition-delay:.2s" role="listitem">
+        <div class="flex items-center justify-between mb-5">
+          <span class="tag" style="color:#ff4d4d; border-color:rgba(255,77,77,.25); background:rgba(255,77,77,.1);">Storytelling</span>
+          <span class="text-2xl group-hover:animate-wiggle" aria-hidden="true"></span>
+        </div>
+        <h3 class="font-display text-xl text-nb-light mb-3">CASE BREAKDOWN</h3>
+        <p class="font-body text-nb-muted text-sm leading-relaxed mb-5">
+          Pembahasan detail setiap kasus. Apa yang terjadi, bagaimana pola pelaku bekerja, dan kenapa kasus itu penting untuk diungkap.
+        </p>
+        <div class="flex items-center gap-2">
+          <div class="w-2 h-2 rounded-full" style="background:#ff4d4d;" aria-hidden="true"></div>
+          <!-- <span class="font-mono text-xs text-nb-muted">15+ Episode</span> -->
+        </div>
+      </article>
+
+      <!-- Card 4: Collab -->
+      <article class="nb-card p-7 reveal group cursor-default" style="transition-delay:.15s" role="listitem">
+        <div class="flex items-center justify-between mb-5">
+          <span class="tag" style="color:#a78bfa; border-color:rgba(167,139,250,.25); background:rgba(167,139,250,.1);">Collab</span>
+          <span class="text-2xl group-hover:animate-wiggle" aria-hidden="true"></span>
+        </div>
+        <h3 class="font-display text-xl text-nb-light mb-3">COLLABORATIVE ACTION</h3>
+        <p class="font-body text-nb-muted text-sm leading-relaxed mb-5">
+          Bekerja sama dengan creator lain, komunitas, dan pihak terkait untuk memperluas jangkauan investigasi dan tindakan nyata.
+        </p>
+        <div class="flex items-center gap-2">
+          <div class="w-2 h-2 rounded-full" style="background:#a78bfa;" aria-hidden="true"></div>
+          <!-- <span class="font-mono text-xs text-nb-muted">10+ Kolaborasi</span> -->
+        </div>
+      </article>
+
+      <!-- Card 5: Live Streaming -->
+      <article class="nb-card p-7 reveal group cursor-default" style="transition-delay:.25s" role="listitem">
+        <div class="flex items-center justify-between mb-5">
+          <span class="tag" style="color:#fbbf24; border-color:rgba(251,191,36,.25); background:rgba(251,191,36,.1);">Live</span>
+          <span class="text-2xl group-hover:animate-wiggle" aria-hidden="true"></span>
+        </div>
+        <h3 class="font-display text-xl text-nb-light mb-3">LIVE RESPONSE</h3>
+        <p class="font-body text-nb-muted text-sm leading-relaxed mb-5">
+          Diskusi langsung bersama audience. Membahas perkembangan kasus, Q&A, dan respon real-time terhadap isu yang sedang berjalan.
+        </p>
+        <div class="flex items-center gap-2">
+          <!-- Pulsing live dot -->
+          <div class="w-2 h-2 rounded-full bg-nb-pop animate-pulse" aria-hidden="true"></div>
+          <span class="font-mono text-xs" style="color:#fbbf24;">Coming Soon</span>
+        </div>
+      </article>
+
+      <!-- Card 6: Fans Pillar (special style) -->
+      <article class="nb-card nb-card--special p-7 reveal group cursor-default" style="transition-delay:.3s; background: linear-gradient(135deg, #1a1a1a, #1a1200);" role="listitem">
+        <div class="flex items-center justify-between mb-5">
+          <span class="tag">Community</span>
+          <span class="text-2xl group-hover:animate-wiggle" aria-hidden="true"></span>
+        </div>
+        <h3 class="font-display text-xl text-nb-accent mb-3">THE WITNESSES</h3>
+        <p class="font-body text-nb-muted text-sm leading-relaxed mb-5">
+          Kalian bukan sekadar penonton. Kalian adalah saksi, pemberi informasi, dan bagian penting dari setiap langkah yang kami ambil.
+        </p>
+        <a
+          href="https://youtube.com/@nahanberak"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="font-mono text-xs text-nb-accent tracking-widest uppercase hover:underline"
+          aria-label="Gabung sekarang di YouTube"
+        >
+          Become Part of The Movement →
+        </a>
+      </article>
+
+    </div><!-- /grid -->
+
+    <!-- ── CTA Banner ── -->
+    <div class="reveal">
+      <div class="nb-card relative overflow-hidden p-10 md:p-14 text-center" style="background: linear-gradient(135deg, #1a1200, #0a1a12, #1a0010);">
+        <!-- Gradient overlay for depth -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none" style="background: linear-gradient(135deg, #f5c518, #00c9a7, #ff4d4d);" aria-hidden="true"></div>
+
+        <div class="relative z-10">
+          <div class="font-display text-4xl md:text-6xl text-white mb-4">SIAP MASUK KE DALAM?</div>
+          <p class="font-body text-nb-muted text-lg max-w-lg mx-auto mb-8">
+            Subscribe, ikuti semua pergerakan kami, dan jadilah bagian dari komunitas yang tidak memilih diam ketika melihat sesuatu yang salah.
+          <div class="flex gap-4 justify-center flex-wrap">
+            <a
+              href="https://youtube.com/@nahan_berak"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-primary"
+              aria-label="Subscribe di YouTube"
+            >
+              <!-- YouTube icon -->
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.5V8.5l6.3 3.5-6.3 3.5z"/>
+              </svg>
+              Subscribe YouTube
+            </a>
+            <a
+              href="https://instagram.com/nahanberak.id"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-ghost"
+              aria-label="Follow di Instagram"
+            >
+              <!-- Instagram icon -->
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+              Instagram
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

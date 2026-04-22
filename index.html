@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <!-- ============================================================
+       index.html — Application Shell
+       ============================================================
+       This file is intentionally minimal. Its only jobs are:
+         1. Load all external dependencies (CSS, fonts, Swiper)
+         2. Define the Tailwind config (design tokens)
+         3. Declare component mount points (data-component)
+         4. Bootstrap the app via js/main.js (type="module")
+
+       ALL layout markup lives in /components/*.html
+       ALL styles live in /css/style.css
+       ALL logic lives in /js/*.js
+       ALL data/config lives in /config/constants.js
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nahan Berak — Tim konten kreator YouTube yang solid, fun, dan genuine dari Indonesia." />
+  <meta name="theme-color" content="#f5c518" />
+
+  <!-- Open Graph (for social sharing) -->
+  <meta property="og:title"       content="Nahan Berak Community" />
+  <meta property="og:description" content="Tim konten kreatif yang selalu bikin kamu nahan tawa." />
+  <meta property="og:type"        content="website" />
+
+  <title>Nahan Berak — Community</title>
+
+  <!-- ── External CSS Dependencies ── -->
+
+  <!-- Tailwind CSS (CDN — swap with CLI build for production) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800;900&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Project stylesheet — all custom design tokens and component styles -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- ── Tailwind Config (Design Tokens) ── -->
+  <!--
+    This block extends Tailwind's default theme with our custom
+    color palette, fonts, animations, and keyframes. These tokens
+    are the CSS-class layer of our design system.
+    The JS layer lives in config/constants.js.
+  -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          /* ─ Fonts ─ */
+          fontFamily: {
+            display: ['Bebas Neue', 'sans-serif'],
+            body:    ['Nunito', 'sans-serif'],
+            mono:    ['Space Mono', 'monospace'],
+          },
+
+          /* ─ Brand Colors ─ */
+          colors: {
+            nb: {
+              black:  '#0a0a0a',
+              dark:   '#111111',
+              card:   '#1a1a1a',
+              border: '#2a2a2a',
+              accent: '#18dbf5',
+              pop:    '#ff4d4d',
+              teal:   '#0050c9',
+              muted:  '#888888',
+              light:  '#f0f0f0',
+              purple: '#a78bfa',
+            },
+          },
+
+          /* ─ Keyframes ─ */
+          keyframes: {
+            fadeUp: {
+              '0%':   { opacity: '0', transform: 'translateY(32px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)'    },
+            },
+            marquee: {
+              '0%':   { transform: 'translateX(0%)'   },
+              '100%': { transform: 'translateX(-50%)' },
+            },
+            pulse2: {
+              '0%,100%': { transform: 'scale(1)',    opacity: '1'   },
+              '50%':     { transform: 'scale(1.08)', opacity: '.85' },
+            },
+            wiggle: {
+              '0%,100%': { transform: 'rotate(-2deg)' },
+              '50%':     { transform: 'rotate(2deg)'  },
+            },
+          },
+
+          /* ─ Animation Utilities ─ */
+          animation: {
+            fadeUp:  'fadeUp .7s ease both',
+            marquee: 'marquee 22s linear infinite',
+            pulse2:  'pulse2 2.4s ease-in-out infinite',
+            wiggle:  'wiggle 1.6s ease-in-out infinite',
+          },
+        },
+      },
+    };
+  </script>
+</head>
+
+<body>
+
+  <!--
+    ── COMPONENT MOUNT POINTS ──────────────────────────────────
+    Each [data-component] attribute tells the component loader
+    (in main.js) which HTML file to fetch and inject here.
+
+    Component loading order === DOM order.
+    Add a new section? Create components/mysection.html and add:
+      <div data-component="mysection"></div>
+    ────────────────────────────────────────────────────────── -->
+
+  <div data-component="navbar"></div>
+  <div data-component="hero"></div>
+  <div data-component="about"></div>
+  <div data-component="community"></div>
+  <div data-component="footer"></div>
+
+  <!-- ── External JS Dependencies (loaded before main module) ── -->
+  <!-- Swiper JS — must be global before swiper.js module runs -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!--
+    ── Application Entry Point ──────────────────────────────────
+    type="module" enables ES Module imports (import/export).
+    main.js loads all feature modules and initializes the app.
+    defer is implicit with type="module".
+    ─────────────────────────────────────────────────────────── -->
+  <script type="module" src="js/main.js"></script>
+
+</body>
+</html>

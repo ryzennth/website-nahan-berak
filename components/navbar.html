@@ -1,0 +1,98 @@
+<!--
+  ============================================================
+  components/navbar.html
+  ============================================================
+  Premium Sticky Glass Navbar
+  - Fixed navbar (does not disappear on scroll)
+  - Blur + semi-transparent background
+  - Investigation branding
+  - Responsive mobile drawer
+  ============================================================
+-->
+
+<nav id="navbar" class="w-full fixed top-0 left-0 z-[9999]">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+    <!-- ── Brand Logo ── -->
+    <a href="#home" class="flex items-center gap-3 group" aria-label="Nahan Berak — Home">
+      <div class="w-10 h-10 rounded-xl bg-nb-accent flex items-center justify-center font-display text-nb-black text-xl leading-none select-none shadow-lg group-hover:rotate-6 transition-transform duration-300">
+        NB
+      </div>
+
+      <span class="font-display text-2xl tracking-wider text-nb-light">
+        NAHAN <span class="text-nb-accent">BERAK</span>
+      </span>
+    </a>
+
+    <!-- ── Desktop Navigation ── -->
+    <div class="hidden md:flex items-center gap-10" role="navigation" aria-label="Main navigation">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#about" class="nav-link">Investigation</a>
+      <a href="#community" class="nav-link">Movement</a>
+    </div>
+
+    <!-- ── Desktop CTA ── -->
+    <div class="hidden md:flex items-center gap-4">
+      <a
+        href="https://youtube.com/@nahanberak"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary text-sm py-3 px-6"
+        aria-label="Join The Hunt"
+      >
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.5V8.5l6.3 3.5-6.3 3.5z"/>
+        </svg>
+        Join The Hunt
+      </a>
+    </div>
+
+    <!-- ── Mobile Hamburger ── -->
+    <button
+      id="hamburger"
+      class="md:hidden flex flex-col gap-1.5 p-2"
+      aria-label="Toggle mobile menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span class="hamburger-line w-6 h-0.5 bg-nb-light rounded transition-all duration-300"></span>
+      <span class="hamburger-line w-4 h-0.5 bg-nb-accent rounded transition-all duration-300 ml-auto"></span>
+      <span class="hamburger-line w-6 h-0.5 bg-nb-light rounded transition-all duration-300"></span>
+    </button>
+  </div>
+
+  <!-- ── Mobile Menu Drawer ── -->
+  <div
+    id="mobile-menu"
+    role="navigation"
+    aria-label="Mobile navigation"
+    class="md:hidden px-6 pb-4 bg-nb-dark/90 backdrop-blur-xl border-t border-nb-border"
+  >
+    <div class="font-mono text-xs tracking-widest text-nb-muted uppercase px-4 pt-4 pb-3">
+      Digital Investigation Unit
+    </div>
+
+    <div class="flex flex-col gap-1">
+      <a href="#home" class="mobile-nav-link py-3 px-4 rounded-xl font-bold tracking-widest text-sm uppercase text-nb-light hover:text-nb-accent hover:bg-nb-card transition-all">
+        Home
+      </a>
+
+      <a href="#about" class="mobile-nav-link py-3 px-4 rounded-xl font-bold tracking-widest text-sm uppercase text-nb-light hover:text-nb-accent hover:bg-nb-card transition-all">
+        Investigation
+      </a>
+
+      <a href="#community" class="mobile-nav-link py-3 px-4 rounded-xl font-bold tracking-widest text-sm uppercase text-nb-light hover:text-nb-accent hover:bg-nb-card transition-all">
+        Movement
+      </a>
+
+      <a
+        href="https://youtube.com/@nahanberak"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mobile-nav-link mt-3 btn-primary justify-center"
+      >
+        Join The Hunt
+      </a>
+    </div>
+  </div>
+</nav>
